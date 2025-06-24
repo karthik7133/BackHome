@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "885419707917",
+    "firebase_url": "https://backhome-dafad-default-rtdb.firebaseio.com",
+    "project_id": "backhome-dafad",
+    "storage_bucket": "backhome-dafad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885419707917:android:75ddf5bf1e8372d368cf44",
+        "android_client_info": {
+          "package_name": "com.carcar.backhome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0vE4fU2p3zCNMR4BEBMmvQbOq9fbkdME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
