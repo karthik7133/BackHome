@@ -40,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Firebase","Data written unsuccessfully!");
         });
         list.add(new item("outline_1k_24","karthik"));
+        list.add(new item("outline_1k_24","king"));
+        list.add(new item("outline_1k_24","kattappa"));
         r=findViewById(R.id.r);
 
         r.setLayoutManager(new LinearLayoutManager(this));
-        itemAdapter adapter=new itemAdapter(list);
+        itemAdapter adapter=new itemAdapter(this,list);
         r.setAdapter(adapter);
         Log.d("list", String.valueOf(list.size()));
 
