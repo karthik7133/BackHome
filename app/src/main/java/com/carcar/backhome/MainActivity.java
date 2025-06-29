@@ -72,29 +72,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNotification() {
-        NotificationCompat.Builder builder=new NotificationCompat.Builder(this,channelID)
-        .setSmallIcon(R.drawable.ic_launcher_background)
-        .setContentTitle("Water Remainder")
-        .setContentText("Water tagu raa kuyya").setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationCompat.Builder b=new NotificationCompat.Builder(this,channelID)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("Water Remainder")
+                .setContentText("Water tagu ra badakow").setPriority(NotificationCompat.PRIORITY_HIGH);
 
-        NotificationManagerCompat c= NotificationManagerCompat.from(this);
+        NotificationManagerCompat c=NotificationManagerCompat.from(this);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            Toast.makeText(this, "Please grant Notification access", Toast.LENGTH_SHORT).show();
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            Toast.makeText(this, "Please give notification access", Toast.LENGTH_SHORT).show();
             return;
         }
-        c.notify(NOTIFICATION_ID,builder.build());
+        c.notify(NOTIFICATION_ID,b.build());
     }
 
     private void createNotificationChannel() {
-        CharSequence name = "Water Remainder";
-        int importance= NotificationManager.IMPORTANCE_HIGH;
+        CharSequence name="Water Remainder";
+        int importance =NotificationManager.IMPORTANCE_HIGH;
         NotificationChannel channel=new NotificationChannel(channelID,name,importance);
         NotificationManager manager=getSystemService(NotificationManager.class);
-        if(manager!=null)
-            manager.createNotificationChannel(channel);
-
+        manager.createNotificationChannel(channel);
     }
+
 
 }
