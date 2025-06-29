@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,26 +81,20 @@ public class MainActivity extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            Toast.makeText(this, "Please grant Notification access", Toast.LENGTH_SHORT).show();
             return;
         }
         c.notify(NOTIFICATION_ID,builder.build());
     }
 
     private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
-            CharSequence name="Water Remainder";
-            int importance= NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel=new NotificationChannel(channelID,name,importance);
-            NotificationManager manager=getSystemService(NotificationManager.class);
-            if(manager!=null)
-                manager.createNotificationChannel(channel);
+        CharSequence name = "Water Remainder";
+        int importance= NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel channel=new NotificationChannel(channelID,name,importance);
+        NotificationManager manager=getSystemService(NotificationManager.class);
+        if(manager!=null)
+            manager.createNotificationChannel(channel);
 
-        }
     }
 
 }
